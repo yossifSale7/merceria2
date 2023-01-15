@@ -1,0 +1,2431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/normailize.css">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8b371d5130.js" crossorigin="anonymous"></script>
+    <title>Merceria</title>
+
+    <style>
+            :root {
+        --main--color: #232323;
+        --hover--color: rgb(0, 119, 199);
+        --special--color: #05bcd1;
+    }
+    * {
+        font-family: 'Hanken Grotesk', sans-serif;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        -webkit-o-box-sizing: border-box;
+        -webkit-moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-scroll-behavior: smooth;
+        -webkit-o-scroll-behavior: smooth;
+        -webkit-moz-scroll-behavior: smooth;
+        scroll-behavior: smooth;
+    }
+    .container {
+        padding: 15px 0; 
+        margin: auto;
+        max-width: 1150px;
+    }
+    header {
+        background-color: var(--main--color);
+        color: white;
+        width: 100%;
+        padding: 5px 10px;
+        min-height: 55px;
+        font-size: 13px;
+    }
+    header .contact-items {
+        float: left;
+        display: flex;
+    }
+    header .contact p,
+    header .contact i {
+        padding: 0 5px;
+    }
+    header .contact .email {
+        display: flex;
+    }
+    header .contact .email span {
+        transition: .2s;
+        cursor: pointer;
+    }
+    header .contact .email span:hover {
+        color: var(--hover--color);
+    }
+    header .contact .number {
+        display: flex;
+    }
+    header .social-media {
+        float: right;
+        display: flex;
+    }
+    header .social-media > p {
+        cursor: pointer;
+        transition: .2s;
+    }
+    header .social-media > p:hover {
+        color: var(--hover--color);
+    }
+    header .social-media .lang-selector {
+        position: absolute;
+        top: 57px;
+        padding: 10px;
+        width: 90px;
+        height: 0;
+        background-color: white;
+        color: var(--main--color);
+        box-shadow: 0 3px 40px -16px;
+        transition: .2s ease-in-out;
+        opacity: 0;
+    }
+    header .social-media .lang-selector p {
+        padding: 10px;
+        cursor: pointer;
+    }
+    header .social-media .lang-selector.active {
+        height: 90px;
+        opacity: 1;
+        z-index: 3;
+    }
+    header .social-media .lang-selector p:hover {
+        color: var(--hover--color);
+    }
+    .menu {
+        position: fixed;
+        right: -395px;
+        top: 0;
+        background-color: white;
+        width: 375px;
+        height: 100%;
+        z-index: 2;
+        box-shadow: 0 4px 10px 0;
+        transition: .5s cubic-bezier(0.4, 0, 1, 1);
+    }
+    .menu.active {
+        right: 0;
+    }
+    .menu .menu-items {
+        display: flex;
+        padding-top: 25px;
+        padding-left: 12px;
+    }
+    .menu .menu-items::before {
+        content: '';
+        position: absolute;
+        top: 88px;
+        left: 10px;
+        width: 90%;
+        height: 1px;
+        background-color: #4848484f;
+    }
+    .menu .menu-items h1 {
+        font-size: 30px;
+        font-weight: 400;
+    }
+    .menu .menu-items i {
+        font-size: 40px;
+        position: absolute;
+        top: 44px;
+        right: 35px;
+        cursor: pointer;
+        transition: .2s;
+    }
+    .menu .menu-items i:hover {
+        color: var(--hover--color);
+    }
+    .menu > div {
+        padding-bottom: 15px;
+        padding-left: 25px;
+    }
+    .menu > div > div {
+        padding: 10px 0;
+    }
+    .menu div i {
+        font-size: 10px;
+    }
+    .menu div h3 {
+        font-weight: 400;
+        font-size: 17px;
+        cursor: pointer;
+        transition: .2s;
+    }
+    .menu div h3:hover {
+        color: var(--hover--color);
+    }
+    .menu div div {
+        display: none;
+    }
+    .menu .visable {
+        display: block;
+    }
+    .menu div a {
+        display: block;
+        color: var(--main--color);
+        text-decoration: none;
+        padding: 6px 15px;
+        transition: .2s;
+        width: 80%;
+    }
+    .menu div a:hover {
+        color: var(--hover--color);
+        outline-width: 2px;
+        outline-style: solid;
+        outline-color: var(--hover--color);
+    }
+    .menu div.shop .shop-items h2 {
+        font-size: 15px;
+        font-weight: 400;
+        padding: 6px 14px;
+        transition: .2s;
+    }
+    .menu div.shop .shop-items div {
+        padding: 5px 0;
+        cursor: pointer;
+    }
+    .menu div.shop .shop-items div:nth-of-type(2) {
+        padding: 0;
+    }
+    .menu div.shop .shop-items h2:hover {
+        color: var(--hover--color);
+    }
+    .menu div.shop .shop-items a {
+        margin-left: 40px;
+    }
+    .main .heading {
+        display: flex;
+        justify-content: space-between;
+        padding: 40px 25px;
+    }
+    .main .heading .logo {
+        cursor: pointer;
+    }
+    .main .heading .heading-items {
+        padding: 5px 0;
+        display: flex;
+    }
+    .main .heading .heading-items div {
+        display: flex;
+        padding: 0 20px;
+        cursor: pointer;
+    }
+    .main .heading .heading-items .shop-cart {
+        position: relative;
+    }
+    .main .heading .heading-items .shop-cart .num-items {
+        position: absolute;
+        top: -16px;
+        left: 41px;
+        background-color: red;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 50%;
+        opacity: 0;
+    }
+    .main .heading .cart-items::before {
+        content: '';
+        position: absolute;
+        border-width: 14px;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+        right: 31px;
+        top: -31px;
+        opacity: 1;
+        transition: 0.3s;
+    }
+    .main .heading .cart-items {
+        width: 500px;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: -2px;
+        padding: 20px;
+        transform: rotateZ(0);
+        z-index: 9;
+        background-color: white;
+        border: 3px solid var(--main--color);
+        box-shadow: 0 5px 16px -5px #403f3ff5;
+        overflow-y: scroll;
+        opacity: 0;
+        visibility: hidden;
+        transition: .3s;
+    }
+    .main .heading .cart-items p {
+        color: rgb(48, 48, 48);
+        transition: .3s;
+        font-size: 25px;
+    }
+    .main .heading .cart-items .subtotal {
+        font-size: 25px;
+        margin: 15px 10px;
+    }
+    .main .heading .cart-items .subtotal span:first-of-type {
+        margin-left: 8px;
+        font-weight: 500;
+    }
+    .main .heading .cart-items .subtotal .price {
+        font-weight: 500;
+    }
+    .main .heading .cart-items .ckeckout {
+        background-color: white;
+        width: 140px;
+        text-align: center;
+        padding: 13px 25px;
+        margin: 25px 0 15px;
+        font-size: 17px;
+        font-weight: 400;
+        border: 2px solid var(--special--color);
+        transition: .3s;
+        cursor: pointer;
+    }
+    .main .heading .cart-items .ckeckout:hover {
+        background-color: var(--special--color);
+    }
+    .items-shop {
+        display: flex;
+        padding: 5px 0;
+        position: relative;
+    }
+    .items-shop .text-shop {
+        font-size: 30px;
+        padding: 40px 0 5px 20px;
+    }
+    .items-shop .price-cost {
+        font-size: 21px;
+        padding: 0 30px;
+        display: flex;
+    }
+    .items-shop .mark-price {
+        font-size: 25px;
+    }
+    .items-shop i {
+        transition: .2s;
+    }
+    .items-shop i:hover {
+        color: var(--special--color);
+    }
+    .main .heading .heading-items div:first-of-type i {
+        padding: 0 15px;
+        font-size: 20px;
+    }
+    .main .heading .heading-items div:nth-of-type(2) {
+        padding: 3px 20px
+    }
+    .main .heading .heading-items div:last-of-type {
+        background-color: var(--special--color);
+        color: white;
+        padding: 10px;
+        margin-top: -4px;
+        margin-left: 15px;
+        transform: rotateZ(45deg);
+        border-radius: 2px;
+    }
+    .main .heading .heading-items .search {
+        position: absolute;
+        top: 150px;
+        right: 235px;
+        height: 40px;
+        opacity: 0;
+        transition: .2s;
+    }
+    .main .heading .heading-items .search input[type="search"] {
+        padding: 10px;
+        outline: none;
+        transition: .2s;
+    }
+    .main .heading .heading-items .search input[type="search"]:focus {
+        outline: 3px solid var(--hover--color);
+    }
+    .main .heading .heading-items .search input[type="submit"] {
+        background-color: white;
+        border: 1px solid rgb(173, 173, 173);
+        padding: 11px;
+        margin-left: -4px;
+    }
+    .main .heading .heading-items .search.active {
+        opacity: 1;
+    }
+    .main .heading .heading-items div:last-of-type i {
+        transform: rotateZ(-45deg);
+    }
+    .main .heading .emty-message,
+    .main .heading .message {
+        position: fixed;
+        top: -200px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: white;
+        border: 2px solid rgb(53, 53, 53);
+        border-radius: 5px;
+        width: 300px;
+        height: 125px;
+        padding: 10px;
+        text-align: center;
+        font-size: 25px;
+        color: rgba(7, 7, 7, 0.671);
+        transition: .3s;
+        z-index: 9;
+    }
+    .main .heading .message i {
+        display: block;
+        padding: 10px;
+        color: green;
+    }
+    .main .heading .emty-message i {
+        display: block;
+        padding: 10px;
+        color: red;
+    }
+    .main .slide-image {
+        position: relative;
+        width: 100%;
+        height: 110vh;
+        margin: 20px 0;
+        overflow: hidden;
+    }
+    .main .slide-image .slide-one {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #23262e;
+        width: 100%;
+        height: 110vh;
+        transition: 2s;
+        z-index: 1;
+    }
+    .main .slide-image .slide-two {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #2e2923;
+        width: 100%;
+        height: 110vh;
+        transition: 2s;
+    }
+    .main .slide-image .slide-one img:first-of-type {
+        position: absolute;
+        top: 0;
+        right: 100px;
+    }
+    .main .slide-image .slide-one img:nth-of-type(2) {
+        position: absolute;
+        top: 34%;
+        left: 260px;
+    }
+    .main .slide-image .slide-one img:nth-of-type(3) {
+        position: absolute;
+        top: 42%;
+        left: 200px;
+    }
+    .main .slide-image .slide-one img:nth-of-type(4) {
+        position: absolute;
+        top: 50%;
+        left: 260px;
+    }
+    .main .slide-image .slide-one img:nth-of-type(5) {
+        position: absolute;
+        top: 65%;
+        left: 250px;
+        cursor: pointer;
+    }
+    .main .slide-image .slide-one p {
+        position: absolute;
+        top: 60%;
+        left: 250px;
+        color: #ffffff40;
+    }
+    .main .slide-image .slide-two img:first-of-type {
+        position: absolute;
+        top: 0;
+        left: 45px;
+    }
+    .main .slide-image .slide-two img:nth-of-type(2) {
+        position: absolute;
+        top: 34%;
+        right: 260px;
+    }
+    .main .slide-image .slide-two img:nth-of-type(3) {
+        position: absolute;
+        top: 42%;
+        right: 200px;
+    }
+    .main .slide-image .slide-two img:nth-of-type(4) {
+        position: absolute;
+        top: 50%;
+        right: 260px;
+    }
+    .main .slide-image .slide-two img:nth-of-type(5) {
+        position: absolute;
+        top: 65%;
+        right: 250px;
+        cursor: pointer;
+    }
+    .main .slide-image .slide-two p {
+        position: absolute;
+        top: 60%;
+        right: 250px;
+        color: #ffffff40;
+    }
+    .main .slide-image .transition {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: .2s;
+    }
+    .main .slide-image .transition span:first-of-type {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        width: 70px;
+        height: 70px;
+        padding: 17px 0;
+        text-align: center;
+        font-size: 24px;
+        color: white;
+        border: 2px solid white;
+        transition: .2s;
+        cursor: pointer;
+    }
+    .main .slide-image .transition span:nth-of-type(2) {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        width: 70px;
+        height: 70px;
+        padding: 17px 0;
+        text-align: center;
+        font-size: 24px;
+        color: white;
+        border: 2px solid white;
+        transition: .2s;
+        cursor: pointer;
+    }
+    .main .slide-image .transition:hover {
+        opacity: 1;
+    }
+    .main .slide-image .transition span:hover {
+        color: black;
+        border-color: black;
+    }
+    .main .slide-image .go {
+        left: 0;
+    }
+    .main .slide-image .circle-know span:first-of-type {
+        position: absolute;
+        bottom: 20px;
+        left: 49%;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: white;
+        cursor: pointer;
+    }
+    .main .slide-image .circle-know span:nth-of-type(2) {
+        position: absolute;
+        bottom: 20px;
+        left: 51%;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: white;
+        cursor: pointer;
+    }
+    .main .slide-image .circle-know span.active {
+        background-color: var(--special--color);
+    }
+    .style-images .container-images {
+        margin-top: -20px;
+        position: relative;
+    }
+    .style-images .container-images .manager1 {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .style-images .container-images .manager2 {
+        overflow: hidden;
+        position: absolute;
+        width: 370px;
+        top: 0;
+        left: 35%;
+    }
+    .style-images .container-images .manager3 {
+        overflow: hidden;
+        position: absolute;
+        width: 370px;
+        top: 250px;
+        left: 35%;
+    }
+    .style-images .container-images .manager4 {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 70%;
+    }
+    .style-images .container-images .overlay {
+        position: absolute;
+        top: -500px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #0000006b;
+        color: white;
+        text-align: center;
+        transition: .7s;
+        z-index: 100;
+    }
+    .style-images .container-images img {
+        transition: .7s;
+    }
+    .style-images .container-images div:hover img {
+        transform: scale(1.2);
+    }
+    .style-images .container-images div:hover .overlay {
+        top: 0;
+    }
+    .style-images .container-images .manager1 .overlay h3 {
+        margin-top: 40%;
+    }
+    .style-images .container-images .manager2 .overlay h3 {
+        margin-top: 15%;
+    }
+    .style-images .container-images .manager3 .overlay h3 {
+        margin-top: 15%;
+    }
+    .style-images .container-images .manager4 .overlay h3 {
+        margin-top: 40%;
+    }
+    .style-images .container-images .overlay p {
+        margin: 25px 0;
+        font-size: 20px;
+        color: var(--special--color);
+        font-weight: bold;
+    }
+    .style-images .container-images .overlay a {
+        width: 200px;
+        padding: 10px;
+        border: 2px solid var(--special--color);
+        text-decoration: none;
+        color: white;
+        transition: .3s;
+    }
+    .style-images .container-images .overlay a:hover {
+        background-color: var(--special--color);
+    }
+    .style-images .features {
+        margin-top: 515px;
+        height: 90px;
+        display: flex;
+        justify-content: space-around;
+        box-shadow: 0 53px 70px -43px;
+        position: relative;
+    }
+    .style-images .features:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 89px;
+        width: 100%;
+        height: 1px;
+        background-color: #63626238;
+    }
+    .style-images .features .features-items {
+        display: flex;
+        width: 230px;
+        flex-wrap: wrap;
+    }
+    .style-images .features .features-items i {
+        font-size: 35px;
+        margin-left: -45px;
+        margin-right: 12px;
+        margin-bottom: -15px;
+        margin-top: 5px;
+    }
+    .style-images .features .features-items h4 {
+        margin: 0 20px;
+        margin-bottom: 5px;
+    }
+    .style-images .features .features-items p {
+        font-size: 15px;
+        margin: 0 20px;
+        margin-top: -35px;
+        color: #626262b8;
+    }
+    .products {
+        padding: 60px;
+        overflow: hidden;
+    }
+    .products .products-header {
+        text-align: center;
+    }
+    .products .products-header p {
+        padding-bottom: 15px;
+    }
+    .products .products-header h2 {
+        position: relative;
+    }
+    .products .products-header h2:before {
+        content: '';
+        position: absolute;
+        width: 250px;
+        height: 2px;
+        background-color: var(--main--color);
+        top: 35px;
+        left: calc(50% - 125px);
+    }
+    .products .products-header span i {
+        font-size: 25px;
+        margin: 30px 1px;
+        border: 2px solid var(--main--color);
+        padding: 7px 10px;
+        cursor: pointer;
+        opacity: 0;
+        transition: .4s;
+    }
+    .products .product-items {
+        width: 1150px;
+        overflow: hidden;
+    }
+    .products .product-items .product-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .swiper:first-of-type {
+        width: 100%;
+    }
+    .products .container:hover span i {
+        opacity: 1;
+    }
+    .products .container:hover span i:hover {
+        color: var(--special--color);
+        border-color: var(--special--color);
+    }
+    .products .product-items img {
+        width: 265px;
+        margin-right: 30px;
+    }
+    .products .product-items .product:first-of-type {
+        margin-left: 0;
+        transition: 1s;
+    }
+    .products .product-items .product img:first-of-type {
+        position: relative;
+    }
+    .products .product-items .product img:nth-of-type(2) {
+        position: absolute;
+        top: 0;
+        left:0;
+        opacity: 0;
+        transition: .1s;
+        filter: brightness(.8);
+    }
+    .products .product-items .product {
+        position: relative;
+    }
+    .products .product-items .product .fa-eye {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translate(-50%);
+        color: white;
+        background-color: var(--special--color);
+        padding: 8px;
+        font-size: 12px;
+        opacity: 0;
+        transition: .2s;
+        cursor: pointer;
+    }
+    .products .product-items .stars {
+        position: relative;
+        overflow: hidden;
+    }
+    .products .product-items .stars p {
+        color: #292929d9;
+        margin-top: 5px;
+    }
+    .products .product-items .stars i {
+        color: var(--special--color);
+        font-size: 14px;
+        margin-top: 15px;
+    }
+    .products .product-items .stars i:not(:first-of-type) {
+        margin-left: -7px;
+    }
+    .products .product-items .stars span {
+        display: block;
+        margin-top: 7px;
+        font-size: 21px;
+        font-weight: 600;
+        font-family: fangsong;
+        transition: .4s;
+    }
+    .products .product-items .whishlist {
+        position: absolute;
+        top: 55px;
+        left: -260px;
+        transition: .3s;
+    }
+    .products .product-items .product:hover .whishlist {
+        left: 0;
+    }
+    .products .product-items .product:hover .stars span {
+        opacity: 0;
+    }
+    .products .product-items .product:hover img:nth-of-type(2),
+    .products .product-items .product:hover .fa-eye {
+        opacity: 1;
+    }
+    .products .product-items .whishlist p {
+        display: inline;
+        color: var(--main--color);
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .products .product-items .whishlist i {
+        color: var(--main--color);
+        margin-top: 0;
+        cursor: pointer;
+    }
+    .products .product-items .whishlist i:first-of-type {
+        margin-right: 5px;
+    }
+    .products .product-items .whishlist i:nth-of-type(2) {
+        margin-left: 70px;
+        padding: 10px;
+    }
+    .products .product-items .whishlist i:nth-of-type(3) {
+        margin-left: 10px;
+        padding: 10px;
+    }
+    .products .product-items .whishlist i:nth-of-type(2):hover {
+        color: white;
+        background-color: var(--special--color);
+    }
+    .products .product-items .whishlist i:nth-of-type(3):hover {
+        color: white;
+        background-color: var(--special--color);
+    }
+    .package-sections {
+        width: 100%;
+        height: 900px;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    .package-sections h2 {
+        margin: 5px 50px;
+        font-weight: 600;
+        color: rgb(83 83 83 / 94%);
+    }
+    .package-sections .latest-blog {
+        width: 40%;
+        float: left;
+        position: relative;
+        margin-left: -25px;
+    }
+    .package-sections .latest-blog h2 {
+        margin-left: 125px;
+    } 
+    .package-sections .latest-blog .latest-blog-items .swip {
+        display: flex;
+        margin: 60px 100px 0px 100px;
+        width: 300px;
+        overflow: hidden;
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog1 {
+        margin-right: 30px;
+        transition: 1s;
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog1 div:nth-of-type(2) {
+        position: absolute;
+        top: 45%;
+        left: 5px;
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog1 div:nth-of-type(2) span {
+        font-size: 65px;
+        font-family: Raleway, Arial, Helvetica, sans-serif;
+        font-weight: 600;
+        color: #000000db;
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog1 div:nth-of-type(2) p {
+        color: #00000096;
+        font-weight: 800;
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog2 {
+        margin-right: 30px;
+        transition: 1s;
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog2 div:nth-of-type(2) {
+        position: absolute;
+        top: 45%;
+        left: 5px;
+        opacity: 0;
+        transition: .3s;
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog3 {
+        margin-right: 30px;
+        transition: 1s;
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog3 div:nth-of-type(2) {
+        position: absolute;
+        display: none;
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog4 {
+        margin-right: 30px;
+        transition: 1s;
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog4 div:nth-of-type(2) {
+        position: absolute;
+        top: 45%;
+        left: 5px;
+        opacity: 0;
+        transition: .3s;
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog5 {
+        margin-right: 30px;
+        transition: 1s;
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog5 div:nth-of-type(2) {
+        position: absolute;
+        top: 45%;
+        left: 5px;
+        opacity: 0;
+        transition: .3s;
+    }
+    .package-sections .latest-blog .latest-blog-items .outerlay {
+        position: absolute;
+        top: 90px;
+        left: 84px;
+        width: 295px;
+        height: 285px;
+        background-color: white;
+        border: 1px solid rgba(75, 75, 75, 0.164);
+        transition: .5s;
+        z-index: -1;
+    }
+    .package-sections .latest-blog .latest-blog-items .swip:hover .outerlay {
+        background-color: var(--special--color);
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog1:hover img {
+        filter: brightness(.7);
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog2:hover img {
+        filter: brightness(.7);
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog3:hover img {
+        filter: brightness(.7);
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog4:hover img {
+        filter: brightness(.7);
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog5:hover img {
+        filter: brightness(.7);
+    }
+    .package-sections .latest-blog .latest-blog-items .latest-blog3 {
+        display: none;
+    }
+    .package-sections .latest-blog .latest-blog-items .swip:hover i.fa-search {
+        opacity: 1;
+    }
+    .package-sections .latest-blog .latest-blog-items .swip img {
+        width: 300px;
+        position: relative;
+        margin-left: 50%;
+        transform: translate(-50%);
+        margin-top: 10px;
+        transition: .2s;
+    }
+    .package-sections .latest-blog .latest-blog-items .swip p.links {
+        margin-top: -155px;
+    }
+    .package-sections .latest-blog .latest-blog-items .swip p.links a {
+        text-decoration: none;
+        color: #00000081;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: .2s;
+    }
+    .package-sections .latest-blog .latest-blog-items .swip p.links a:hover {
+        color: var(--special--color);
+    }
+    .package-sections .latest-blog .latest-blog-items .swip div:nth-of-type(3) {
+        position: relative;
+        top: -164px;
+        background-color: white;
+        height: 160px;
+        padding: 10px 0;
+    }
+    .package-sections .latest-blog .latest-blog-items .swip div:nth-of-type(3) h4 {
+        padding: 5px 0;
+        line-height: 1.7;
+        font-family: sans-serif;
+    }
+    .package-sections .latest-blog .latest-blog-items .swip div:nth-of-type(3) p {
+        font-size: 14px;
+        line-height: 1.7;
+        color: #353535d3;
+        font-weight: 500;
+    }
+    .package-sections .latest-blog .latest-blog-items .swip div:nth-of-type(3)::before {
+        content: '';
+        position: absolute;
+        top: 160px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: rgba(0, 0, 0, 0.253);
+    }
+    .package-sections .latest-blog .latest-blog-items .swip i.fa-search {
+        position: absolute;
+        top: 38%;
+        left: 48%;
+        color: white;
+        border: 2px solid white;
+        border-radius: 50%;
+        padding: 14px;
+        font-size: 12px;
+        cursor: pointer;
+        opacity: 0;
+        transition: .2s;
+    }
+    .package-sections .testemonial {
+        width: 30%;
+        float: left;
+        margin-left: -30px;
+    }
+    .package-sections .testemonial h2 {
+        margin-left: 100px;
+    }
+    .package-sections .testemonial .testemonial-items {
+        height: 600px;
+        margin-top: 50px;
+        background-color: var(--special--color);
+        cursor: grab;
+    }
+    .package-sections .testemonial .testemonial-items .swiper-slide {
+        padding: 10px 20px;
+        color: white;
+    }
+    .package-sections .testemonial .testemonial-items .swiper-slide img {
+        margin-left: 33%;
+        margin-top: 20px;
+        border-radius: 10%;
+    }
+    .package-sections .testemonial .testemonial-items .swiper-slide h2 {
+        text-align: center;
+        font-size: 18px;
+        margin: 10px 0;
+        color: white;
+    }
+    .package-sections .testemonial .testemonial-items .swiper-slide h6 {
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .package-sections .testemonial .testemonial-items .swiper-slide p {
+        padding: 25px 5px;
+        text-align: center;
+        line-height: 2;
+    }
+    .package-sections .logos {
+        width: 500px;
+    }
+    .package-sections .logos h2 {
+        margin-left: 100px;
+    }
+    .package-sections .logos {
+        width: 32%;
+        float: left;
+    }
+    .package-sections .logos .logos-container {
+        margin-left: 30px;
+        margin-top: 50px;
+        border: 1px solid rgba(63, 63, 63, 0.212);
+        max-height: 540px;
+    }
+    .package-sections .logos .logos-container .logos-items {
+        display: flex;
+        justify-content: space-between;
+        width: 500px;
+        cursor: grab;
+    }
+    .logos .swiper {
+        width: 350px;
+        height: 540px;
+    }
+    .package-sections .logos .logos-container .logos-items .logo {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 0 20px;
+    }
+    .package-sections .logos .logos-container .logos-items .logo img {
+        margin: 49px 0;
+    }
+    .package-sections::before {
+        content: '';
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: #38363640;
+        width: 75%;
+        height: 1px;
+        box-shadow: 0px 8px 35px 1px #00000091;
+    }
+    .sales {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    .sales::before {
+        content: '';
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: #38363640;
+        width: 75%;
+        height: 1px;
+        box-shadow: 0px 8px 25px 1px #00000091;
+    }
+    .sales .sales-content {
+        display: flex;
+        flex-direction: row;
+    }
+    .sales .sales-content h4 {
+        margin: 15px 0;
+        margin-left: 20px;
+        font-size: 20px;
+        font-weight: 400;
+    }
+    .sales .sales-content .sales-item {
+        margin: 50px 0;
+    }
+    .sales .sales-content .sales-item .product-content {
+        display: inline-flex;
+        margin: 0 0;
+        margin-bottom: 30px;
+        position: relative;
+    }
+    .sales .sales-content .sales-item .product-content .product-text {
+        margin: 20px 20px
+    }
+    .sales .sales-content .sales-item .product-content img {
+        width: 90px;
+    }
+    .sales .sales-content .sales-item .product-content .product-images {
+        position: relative;
+    }
+    .sales .sales-content .sales-item .product-content img:nth-of-type(2) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        transition: .2s;
+        filter: brightness(.8);
+    }
+    .sales .sales-content .sales-item .product-content img:nth-of-type(2):hover {
+        opacity: 1;
+    }
+    .sales .sales-content .sales-item .product-content p:first-of-type {
+        font-size: 14px;
+        color: var(--main--color);
+        padding-bottom: 15px;
+        transition: .3s;
+        cursor: pointer;
+    }
+    .sales .sales-content .sales-item .product-content p:hover {
+        color: rgba(63, 63, 63, 0.575);
+    }
+    .sales .sales-content .sales-item .product-content i {
+        font-size: 12px;
+        color: var(--special--color);
+    }
+    .sales .sales-content .sales-item .product-content i:not(:first-of-type) {
+        margin-left: -5px;
+    }
+    .sales .sales-content .sales-item .product-content span {
+        display: block;
+        font-size: 19px;
+        font-weight: 800;
+        padding-top: 8px;
+        font-family: serif;
+    }
+    .sales .sales-content .sales-item .product-content p.offer {
+        display: flex;
+        justify-content: end;
+        margin-top: -30px;
+        margin-right: 5px;
+    }
+    .sales .sales-content .sales-item .product-content p.offer2 {
+        display: flex;
+        justify-content: end;
+        margin-top: -30px;
+        margin-right: -27px;
+    }
+    .sales .sales-content .sales-item .product-content p.offer span {
+        margin-left: 7px;
+        color: #2626269e;
+        text-decoration: line-through;
+    }
+    .sales .sales-content .sales-item .product-content p.offer2 span {
+        margin-left: 7px;
+        color: #2626269e;
+        text-decoration: line-through;
+    }
+    .sales .sales-content .sales-item .product-content .add-to-cart {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        cursor: pointer;
+    }
+    .sales .sales-content .sales-item .product-content .add-to-cart i {
+        font-size: 17px;
+        margin: 10px;
+    }
+    .about {
+        position: relative;
+        margin: 50px 20px;
+    }
+    .about .about-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .about .about-items img {
+        margin-bottom: 50px;
+        width: 190px;
+    }
+    .about .about-items h2 {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+    .about .about-items p {
+        width: 863px;
+        text-align: center;
+        color: #464646bd;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    footer {
+        min-height: 400px;
+        background-color: var(--main--color);
+        color: white;
+        position: relative;
+    }
+    footer::before {
+        content: '';
+        position: absolute;
+        bottom: 125px;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: #a7a3a340;
+        width: 75%;
+        height: 1px;
+        box-shadow: 0px 8px 25px 1px #3a3a3a91;
+    }
+    footer .footer-item {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    footer .footer-item > div {
+        margin: 50px 0;
+    }
+    footer .footer-item > div h2 {
+        font-size: 17px;
+        font-weight: 400;
+        margin-bottom: 40px;
+        color: var(--special--color)
+    }
+    footer .footer-item .icons div {
+        display: flex;
+        flex-direction: row;
+        margin: 25px 0;
+    }
+    footer .footer-item .icons div i {
+        background-color: white;
+        padding: 10px;
+        border-radius: 50%;
+        color: var(--special--color);
+        margin: -5px 10px;
+    }
+    footer .footer-item .openning-time div p {
+        margin: 25px 0;
+    }
+    footer .footer-item ul li {
+        margin: 20px 0;
+        list-style-type: circle;
+        cursor: pointer;
+        transition: .3s;
+    }
+    footer .footer-item ul li:hover {
+        transform: translateX(5px);
+        color: rgba(151, 151, 151, 0.479);
+    }
+    .cash {
+        text-align: center;
+        margin-top: 30px;
+    }
+    .cash span {
+        cursor: pointer;
+        transition: .2s;
+    }
+    .cash span:hover {
+        color: var(--special--color)
+    }
+    .cash img {
+        margin: 20px 0;
+        cursor: pointer;
+    }
+    </style>
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="contact">
+                <div class="contact-items">
+                    <div class="email">
+                        <i class="fa-solid fa-envelope"></i>
+                        <p> Email: <span>info@roadthemes.com</span> /</p>
+                    </div>
+                    <div class="number">
+                        <i class="fa-solid fa-phone"></i>
+                        <p> Phone: 0987. 654. 321</p>
+                    </div>
+                </div>
+                <div class="social-media">
+                    <p>English <i class="fa-solid fa-chevron-down down"></i> </p> 
+                    <div class="lang-selector">
+                        <p>Arabic</p>
+                        <p>Espaniol</p>
+                    </div>
+                    / <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-google"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="menu">
+        <div class="menu-items">
+            <h1>MENU</h1> <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="home show">
+            <h3>HOME <i class="fa-solid fa-chevron-down down"></i></h3>
+            <div class="hide">
+                <a href="#">Home Shop 1</a>
+                <a href="#">Home Shop 2</a>
+                <a href="#">Home Shop 3</a>
+                <a href="#">Home Shop 4</a>
+                <a href="#">Home Shop 5</a>
+            </div>
+        </div>
+        <div class="blog show">
+            <h3>BLOG <i class="fa-solid fa-chevron-down down"></i></h3>
+            <div class="hide">
+                <a href="#">Blog layouts</a>
+                <a href="#">Blog Pages</a>
+                <a href="#">Blog Formats</a>
+            </div>
+        </div>
+        <div class="shop show">
+            <h3>SHOP <i class="fa-solid fa-chevron-down down"></i></h3>
+            <div class="shop-items hide">
+                <div class="visable"><h2>Shop Pages <i class="fa-solid fa-chevron-down down"></i></h2></div>
+                <div class="shop-pages">
+                    <a href="#">Shop</a>
+                    <a href="#">Category</a>
+                    <a href="#">Checkout</a>
+                    <a href="#">My Account</a>
+                    <a href="#">Shopping Cart</a>
+                    <a href="#">Wishlist</a>
+                </div>
+                <div class="visable"><h2 class="product-h2">Product Type <i class="fa-solid fa-chevron-down down"></i></h2></div>
+                <div class="product-type">
+                    <a href="#">Simple Product</a>
+                    <a href="#">Variables Product</a>
+                    <a href="#">Grouped Product</a>
+                    <a href="#">Downloadable</a>
+                    <a href="#">Virtual Product</a>
+                </div>
+            </div>
+        </div>
+        <div class="pages show">
+            <h3>PAGES <i class="fa-solid fa-chevron-down down"></i></h3>
+            <div class="hide">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">FAQS</a>
+                <a href="#">Sample Page</a>
+                <a href="#">404</a>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="container">
+            <div class="heading">
+                <div class="logo">
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo.webp" alt="">
+                </div>
+                <div class="heading-items">
+                    <div class="shop-cart">
+                        <i class="fa-solid fa-bag-shopping"></i><p><span class="num-items">0 </span>items</p>
+                    </div> 
+                    <div><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <form class="search">
+                        <input type="search" placeholder="search for your item...">
+                        <input type="submit" value="search">
+                    </form>
+                    <div class="active"><i class="fa-solid fa-bars"></i></div>
+                </div>
+                <div class="cart-items">
+                    <div class="category"></div>
+                    <p class="subtotal">SUBTOTAL: <span>$</span><span class="price">0.00</span></p>
+                    <div class="ckeckout">CKECKOUT</div>
+                </div>
+                <div class="emty-message"><i class="fa-solid fa-xmark"></i>Your Cart Is empty!</div>
+                <div class="message"><i class="fa-solid fa-check"></i>Your Order Is Placed!</div>
+            </div>
+            <div class="slide-image">
+                <div class="slide-one">
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/boy1.webp" height="100%">
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/new_collection.webp" alt="">
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes_men.webp" alt="">
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/2015_2.webp">
+                    <p>Lorem ipsum dolor sit amet</p>
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/view-collection2.webp" alt="">
+                </div>
+                <div class="slide-two">
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/boy22.webp" height="100%">
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/new_collection.webp" alt="">
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes_men.webp" alt="">
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/2015_2.webp">
+                    <p>Lorem ipsum dolor sit amet</p>
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/view-collection2.webp" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="style-images">
+        <div class="container">
+            <div class="container-images">
+                <div class="manager1">
+                    <div class="overlay">
+                        <h3>Metallic gold doc martens</h3>
+                        <p>$ 330.00</p>
+                        <a href="#">VIEW COLLECTION</a>
+                    </div>
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/1.webp" alt="">
+                </div>
+                <div class="manager2">
+                    <div class="overlay">
+                        <h3>Metallic gold doc martens</h3>
+                        <p>$ 330.00</p>
+                        <a href="#">VIEW COLLECTION</a>
+                    </div>
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/2.webp" alt="">
+                </div>
+                <div class="manager3">
+                    <div class="overlay">
+                        <h3>Metallic gold doc martens</h3>
+                        <p>$ 330.00</p>
+                        <a href="#">VIEW COLLECTION</a>
+                    </div>
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/4.webp" alt="">
+                </div>
+                <div class="manager4">
+                    <div class="overlay">
+                        <h3>Metallic gold doc martens</h3>
+                        <p>$ 330.00</p>
+                        <a href="#">VIEW COLLECTION</a>
+                    </div>
+                    <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/3.webp" width="100%" height="470px">
+                </div>
+            </div>
+            <div class="features">
+                <div class="features-items">
+                    <i class="fa fa-bus"></i>
+                    <h4>FREE SHIPPING</h4>
+                    <p>On Order Over $150.00</p>
+                </div>
+                <div class="features-items">
+                    <i class="fa fa-refresh"></i>
+                    <h4>FREE RETURN</h4>
+                    <p>Free 90 Days Return</p>
+                </div>
+                <div class="features-items">
+                    <i class="fa fa-tags"></i>
+                    <h4>MEMBER DISCOUNT</h4>
+                    <p>Free Register</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="products">
+        <div class="container">
+            <div class="products-header">
+                <p>WHAT WE HAVE CHOOSEN FOR YOU</p>
+                <h2>CHECK THE FEATURED PRODUCTS</h2>
+                <span class="left"><i class="fa-solid fa-chevron-left"></i></span>
+                <span class="right"><i class="fa-solid fa-chevron-right"></i></span>
+            </div>
+            <div class="product-items">
+                <div class="swiper-wrapper product-container">
+                    <div class="product swiper-slide">
+                        <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes1.webp" alt="">
+                        <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes1-2.webp" alt="">
+                        <i class="fa-solid fa-eye"></i>
+                        <div class="stars">
+                            <p>Turpis Velit Aliquet</p>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span>$245.00</span>
+                            <div class="whishlist">
+                                <i class="fa-solid fa-plus"></i>
+                                <p class="whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes1.webp" data-price="$245.00" data-total="245.00" data-name="Turpis Velit Aliquet">Add To Cart</p>
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-repeat"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes2.webp" alt="">
+                        <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes2-2.webp" alt="">
+                        <i class="fa-solid fa-eye"></i>
+                        <div class="stars">
+                            <p>Turpis Velit Aliquet</p>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span>$275.00</span>
+                            <div class="whishlist">
+                                <i class="fa-solid fa-plus"></i>
+                                <p class="whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes2.webp" data-price="$275.00" data-total="275.00" data-name="Turpis Velit Aliquet">Add To Cart</p>
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-repeat"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes3.webp" alt="">
+                        <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes3-2.webp" alt="">
+                        <i class="fa-solid fa-eye"></i>
+                        <div class="stars">
+                            <p>Turpis Velit Aliquet</p>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span>$159.00</span>
+                            <div class="whishlist">
+                                <i class="fa-solid fa-plus"></i>
+                                <p class="whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes3.webp" data-total="159.00" data-price="$159.00" data-name="Turpis Velit Aliquet">Add To Cart</p>
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-repeat"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes4.webp" alt="">
+                        <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes4-2.webp" alt="">
+                        <i class="fa-solid fa-eye"></i>
+                        <div class="stars">
+                            <p>Turpis Velit Aliquet</p>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span>$345.00</span>
+                            <div class="whishlist">
+                                <i class="fa-solid fa-plus"></i>
+                                <p class="whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes4.webp" data-price="$345.00" data-total="345.00" data-name="Turpis Velit Aliquet">Add To Cart</p>
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-repeat"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes5.webp" alt="">
+                        <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes5-2.webp" alt="">
+                        <i class="fa-solid fa-eye"></i>
+                        <div class="stars">
+                            <p>Turpis Velit Aliquet</p>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <span>$220.00</span>
+                            <div class="whishlist">
+                                <i class="fa-solid fa-plus"></i>
+                                <p class="whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes5.webp" data-price="$220.00" data-total="222.00" data-name="Turpis Velit Aliquet">Add To Cart</p>
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-repeat"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product swiper-slide">
+                        <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes6.webp" alt="">
+                        <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes6-2.webp" alt="">
+                        <i class="fa-solid fa-eye"></i>
+                        <div class="stars">
+                            <p>Turpis Velit Aliquet</p>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <span>$415.00</span>
+                            <div class="whishlist">
+                                <i class="fa-solid fa-plus"></i>
+                                <p class="whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes6.webp" data-price="$415.00" data-total="415.00" data-name="Turpis Velit Aliquet">Add To Cart</p>
+                                <i class="fa-solid fa-heart"></i>
+                                <i class="fa-solid fa-repeat"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="package-sections">
+        <div class="container">
+            <div class="latest-blog">
+                <h2>Latest Blog</h2>
+                <div class="latest-blog-items">
+                    <div class="swip">
+                        <div class="latest-blog1">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/OIP.jpg" alt="">
+                            <div class="outerlay"></div>
+                            <div class="change-text">
+                                <span>10</span>
+                                <p>Apr, 2022</p>
+                            </div>
+                            <div>
+                                <h4>BLOG IMAGES POST LAYOUT INVESTIGATIONES</h4>
+                                <p>Lorem ipsum dolor sit amet. Suscipit, velit? Quae voluptas neque, corrupti quidem reiciendis nemo ad.</p>
+                            </div>
+                            <p class="links"><a>Admin/</a><a>Fashion,Wordpress/</a><a>0 Comments</a></p>
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                        <div class="latest-blog2">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/OIP (5).jpg" alt="">
+                            <div class="outerlay"></div>
+                            <div>
+                                <span>10</span>
+                                <p>Mar, 2022</p>
+                            </div>
+                            <div>
+                                <h4>BLOG IMAGES POST LAYOUT INVESTIGATIONES</h4>
+                                <p>Lorem ipsum dolor sit amet. Suscipit, velit? Quae voluptas neque, corrupti quidem reiciendis nemo ad.</p>
+                            </div>
+                            <p class="links"><a>Admin/</a><a>Fashion,Wordpress/</a><a>0 Comments</a></p>
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                        <div class="latest-blog3">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/OIP.jpg" alt="">
+                            <div class="outerlay"></div>
+                            <div>
+                                <span>10</span>
+                                <p>Mar, 2022</p>
+                            </div>
+                            <div>
+                                <h4>BLOG IMAGES POST LAYOUT INVESTIGATIONES</h4>
+                                <p>Lorem ipsum dolor sit amet. Suscipit, velit? Quae voluptas neque, corrupti quidem reiciendis nemo ad.</p>
+                            </div>
+                            <p class="links"><a>Admin/</a><a>Fashion,Wordpress/</a><a>0 Comments</a></p>
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                        <div class="latest-blog4">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/OIP2.jpeg" alt="">
+                            <div class="outerlay"></div>
+                            <div>
+                                <span>10</span>
+                                <p>Mar, 2022</p>
+                            </div>
+                            <div>
+                                <h4>BLOG IMAGES POST LAYOUT INVESTIGATIONES</h4>
+                                <p>Lorem ipsum dolor sit amet. Suscipit, velit? Quae voluptas neque, corrupti quidem reiciendis nemo ad.</p>
+                            </div>
+                            <p class="links"><a>Admin/</a><a>Fashion,Wordpress/</a><a>0 Comments</a></p>
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                        <div class="latest-blog5">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/OIP3.jpeg" alt="">
+                            <div class="outerlay"></div>
+                            <div>
+                                <span>10</span>
+                                <p>Mar, 2022</p>
+                            </div>
+                            <div>
+                                <h4>BLOG IMAGES POST LAYOUT INVESTIGATIONES</h4>
+                                <p>Lorem ipsum dolor sit amet. Suscipit, velit? Quae voluptas neque, corrupti quidem reiciendis nemo ad.</p>
+                            </div>
+                            <p class="links"><a>Admin/</a><a>Fashion,Wordpress/</a><a>0 Comments</a></p>
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testemonial">
+                <h2>Testemonial</h2>
+                <div class="testemonial-items swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/OIP.jpg" width="100px">
+                            <h2>Mark Gavi</h2>
+                            <h6>Designer</h6>
+                            <p>" On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those "</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/OIP (5).jpg" width="100px">
+                            <h2>Roberto Kesie</h2>
+                            <h6>Programmer</h6>
+                            <p>" On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those "</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/OIP2.jpeg" width="100px">
+                            <h2>Osman Varan</h2>
+                            <h6>Freelancer</h6>
+                            <p>" On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those "</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/OIP3.jpeg" width="100px">
+                            <h2>Torres Chtegen</h2>
+                            <h6>Enginner</h6>
+                            <p>" On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those "</p>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+            <div class="logos">
+                <h2>Brands Logo</h2>
+                <div class="logos-container swiper">
+                    <div class="logos-items swiper-wrapper">
+                        <div class="logo swiper-slide">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo6.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo1.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo2.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo3.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo4.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo5.webp" alt="">
+                        </div>
+                        <div class="logo swiper-slide">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo6.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo1.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo2.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo3.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo4.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo5.webp" alt="">
+                        </div>
+                        <div class="logo swiper-slide">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo6.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo1.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo2.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo3.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo4.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo5.webp" alt="">
+                        </div>
+                        <div class="logo swiper-slide">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo6.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo1.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo2.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo3.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo4.webp" alt="">
+                            <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo5.webp" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sales">
+        <div class="container">
+            <div class="sales-content">
+                <div class="lastest-product">
+                    <h4>LASTEST PRODUCT</h4>
+                    <div class="sales-item">
+                        <div class="product-content">
+                            <div class="product-images">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes1.webp" alt="">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes1-2.webp" alt="">
+                            </div>
+                            <div class="product-text">
+                                <p>Turpis Velit Aliquet</p>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <span>$138.00</span>
+                                <p class="add-to-cart whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes1.webp" data-total="138.00" data-price="$138.00" data-name="Turpis Velit Aliquet"><i class="fa-solid fa-bag-shopping whish" data-image="imgs/shoes1.webp" data-total="138.00" data-price="$138.00" data-name="Turpis Velit Aliquet"></i></p>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-images">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes2.webp" alt="">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes2-2.webp" alt="">
+                            </div>
+                            <div class="product-text">
+                                <p>Diam Quis Cursur</p>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <span>$132.00</span>
+                                <p class="add-to-cart whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes2.webp" data-total="132.00" data-price="$132.00" data-name="Diam Quis Cursur"><i class="fa-solid fa-bag-shopping whish" data-image="imgs/shoes2.webp" data-total="132.00" data-price="$132.00" data-name="Diam Quis Cursur"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lastest-product">
+                    <h4>BEST SELLING PRODUCTS</h4>
+                    <div class="sales-item">
+                        <div class="product-content">
+                            <div class="product-images">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes3.webp" alt="">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes3-2.webp" alt="">
+                            </div>
+                            <div class="product-text">
+                                <p>Diam Quis Cursur</p>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <span>$132.00</span>
+                                <p class="add-to-cart whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes3.webp" data-total="132.00" data-price="$132.00" data-name="Diam Quis Cursur"><i class="fa-solid fa-bag-shopping whish" data-image="imgs/shoes3.webp" data-total="132.00" data-price="$132.00" data-name="Diam Quis Cursur"></i></p>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-images">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes4.webp" alt="">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes4-2.webp" alt="">
+                            </div>
+                            <div class="product-text">
+                                <p>Tincidunt Malesuada</p>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <span>$59.75</span> <p class="offer"><span> / </span> <span> $80.00</span></p>
+                                <p class="add-to-cart whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes4.webp" data-total="59.75" data-price="$59.75" data-name="Tincidunt Malesuada"><i class="fa-solid fa-bag-shopping whish" data-image="imgs/shoes4.webp" data-total="59.75" data-price="$59.75" data-name="Tincidunt Malesuada"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lastest-product">
+                    <h4>ON-SALE</h4>
+                    <div class="sales-item">
+                        <div class="product-content">
+                            <div class="product-images">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes5.webp" alt="">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes6-2.webp" alt="">
+                            </div>
+                            <div class="product-text">
+                                <p>Aliquam Lobortis</p>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <span>$99.99</span> <p class="offer2"><span> / </span> <span> $105.00</span></p>
+                                <p class="add-to-cart whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes5.webp" data-total="99.99" data-price="$99.99" data-name="Aliquam Lobortis"><i class="fa-solid fa-bag-shopping whish" data-image="imgs/shoes5.webp" data-total="99.99" data-price="$99.99" data-name="Aliquam Lobortis"></i></p>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-images">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes6.webp" alt="">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes6-2.webp" alt="">
+                            </div>
+                            <div class="product-text">
+                                <p>Auctor Gravida Enim</p>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <span>$80.00</span> <p class="offer"><span> / </span> <span> $85.00</span></p>
+                                <p class="add-to-cart whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes6.webp" data-total="80.00" data-price="$80.00" data-name="Auctor Gravida Enim"><i class="fa-solid fa-bag-shopping whish" data-image="imgs/shoes6.webp" data-total="80.00" data-price="$80.00" data-name="Auctor Gravida Enim"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lastest-product">
+                    <h4>TOP RATED</h4>
+                    <div class="sales-item">
+                        <div class="product-content">
+                            <div class="product-images">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes7.webp" alt="">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes7-2.webp" alt="">
+                            </div>
+                            <div class="product-text">
+                                <p>Nulla Sed Libero</p>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <span>$40.00</span> <p class="offer2"><span> / </span> <span> $45.00</span></p>
+                                <p class="add-to-cart whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes7.webp" data-total="40.00" data-price="$40.00" data-name="Nulla Sed Libero"><i class="fa-solid fa-bag-shopping whish" data-image="imgs/shoes7.webp" data-total="40.00" data-price="$40.00" data-name="Nulla Sed Libero"></i></p>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <div class="product-images">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes1-2.webp" alt="">
+                                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes1.webp" alt="">
+                            </div>
+                            <div class="product-text">
+                                <p>Phasellus Vel Hendrerit</p>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                <span>$55.00</span>
+                                <p class="add-to-cart whish" data-image="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/shoes1-2.webp" data-total="55.00" data-price="$55.00" data-name="Phasellus Vel Hendrerit"><i class="fa-solid fa-bag-shopping whish" data-image="imgs/shoes1-2.webp" data-total="55.00" data-price="$55.00" data-name="Phasellus Vel Hendrerit"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about">
+        <div class="container">
+            <div class="about-items">
+                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/logo.webp" alt="">
+                <h2>ABOUT THE SHOP</h2>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages…</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="footer-item">
+                <div class="contact-us">
+                    <h2>CONTACT US</h2>
+                    <div class="icons">
+                        <div><i class="fa-solid fa-location-dot"></i> <p>Addresss: 123 Pall Mall, London England</p></div>
+                        <div><i class="fa-solid fa-envelope"></i> <p>Email: info@roadthemes.com</p></div>
+                        <div><i class="fa-solid fa-phone"></i> <p>Phone: (012) 345 6789</p></div>
+                    </div>
+                </div>
+                <div class="openning-time">
+                    <h2>OPENNING TIME</h2>
+                    <div>
+                        <p>Mon - Fri: .......................... 8am - 5pm</p>
+                        <p>Sat: ..................................... 8am - 11am</p>
+                        <p>Sun: .................................... Closed</p>
+                        <p>We work all holidays</p>
+                    </div>
+                </div>
+                <div class="our-services">
+                    <h2>OUR SERVICES</h2>
+                    <ul>
+                        <li>Shipping & Returns</li>
+                        <li>Secure Shopping</li>
+                        <li>International Shipping</li>
+                        <li>Affiliates</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+                <div class="accounts">
+                    <h2>MY ACCOUNT</h2>
+                    <ul>
+                        <li>My Account</li>
+                        <li>Shopping cart</li>
+                        <li>Wishlist</li>
+                        <li>Custom Link</li>
+                        <li>Help</li>
+                    </ul>
+                </div>
+                <div class="information">
+                    <h2>INFORMATION</h2>
+                    <ul>
+                        <li>Our Blog</li>
+                        <li>About Our Shop</li>
+                        <li>Secure Shopping</li>
+                        <li>Privacy Policy</li>
+                        <li>Delivery infomation</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="cash">
+                <p>Copyright © <span>2021 Youssif saleh</span>. All Rights Reserved</p>
+                <img src="https://raw.githubusercontent.com/yossifSale7/merceria/main/imgs/payment.webp" alt="">
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <script src="JS/main.js"></script>
+
+    <script>
+            // Select language 
+    let selectLang = document.querySelector("header .social-media .lang-selector");
+
+    let clcikSelector = document.querySelector("header .social-media > p");
+
+    clcikSelector.onclick = function (e) {
+
+        e.stopPropagation();
+
+        selectLang.classList.toggle('active')
+
+    }
+    document.addEventListener('click', (e) => {
+
+        if (e.target !== clcikSelector) {
+
+            if (selectLang.classList.contains("active")) {
+        
+                selectLang.classList.remove('active')
+        
+            };
+
+        }
+
+    });
+
+    let show = document.querySelector(".main .heading .heading-items .search");
+
+    let search = document.querySelector(".main .heading .heading-items div:nth-of-type(2)");
+
+    search.onclick = function (e) {
+
+        show.classList.toggle("active");
+
+    }
+
+    let menuHome = document.querySelector(".menu .home h3");
+
+    let menuBlog = document.querySelector(".menu .blog h3");
+
+    let menuShop = document.querySelector(".menu .shop h3");
+
+    let menuPages = document.querySelector(".menu .pages h3");
+
+    let pageItemsH2 = document.querySelector(".menu .shop-items h2:first-of-type");
+
+    let productTypeH2 = document.querySelector(".menu .shop-items h2.product-h2");
+
+    function ShowItems(e) {
+
+            e.classList.toggle("visable");
+        
+        };
+
+    menuHome.onclick = function() {
+
+        ShowItems(document.querySelector(".home .hide"));
+
+        };
+
+    menuBlog.onclick = function() {
+
+        ShowItems(document.querySelector(".blog .hide"));
+
+        };
+
+    menuShop.onclick = function() {
+
+        ShowItems(document.querySelector(".shop .hide"));
+
+        };
+        
+    menuPages.onclick = function() {
+
+        ShowItems(document.querySelector(".pages .hide"));
+
+        };
+
+    pageItemsH2.onclick = function() {
+
+        ShowItems(document.querySelector(".menu .shop-items .shop-pages"));
+
+        };
+
+    productTypeH2.onclick = function() {
+
+        ShowItems(document.querySelector(".menu .shop-items .product-type"));
+
+        };
+
+
+    document.querySelector(".main .heading-items div.active").onclick = function () {
+
+        document.querySelector(".menu").classList.add("active");    
+
+    };
+
+    document.querySelector(".menu-items i").onclick = function () {
+
+        document.querySelector(".menu").classList.remove("active");
+
+    }
+
+    let slideOne = document.querySelector(".slide-one")
+
+    let slideTwo = document.querySelector(".slide-two")
+
+    setInterval(() => {
+
+        slideOne.style.transform = "scale(1.6)"
+
+        slideOne.style.opacity = "0"
+
+    }, 10000)
+
+    setInterval(() => {
+
+        slideOne.style.transform = "scale(1)"
+
+        slideOne.style.opacity = "1"
+
+    }, 20000)
+
+    setTimeout(() => {
+
+        setInterval(() => {
+
+            slideTwo.style.transform = "scale(1.6)"
+
+            slideTwo.style.opacity = "0"
+
+        }, 10000)
+
+        setInterval(() => {
+
+            slideTwo.style.transform = "scale(1)"
+
+            slideTwo.style.opacity = "1"
+
+        }, 20000)
+
+    }, 10000)
+
+
+    let clickSpans1 = document.querySelector(".products .products-header span.right");
+
+    let clickSpans2 = document.querySelector(".products .products-header span.left");
+
+    let shoesContainer = document.querySelector(".products .product-items .product:first-of-type");
+
+    const swiper2 = new Swiper(".product-items", {
+
+        slidesPerView: 4,
+
+        watchSlidesProgress: true,
+
+        loop: true,
+
+        navigation: {
+
+            prevEl: ".fa-chevron-left",
+
+            nextEl: ".fa-chevron-right",
+
+        },
+    })
+
+    let sectionMove = document.querySelector(".package-sections .latest-blog .latest-blog-items .latest-blog1");
+
+    var counter = 300;
+
+    var num = 30;
+
+    movingSction = setInterval(() => {
+
+        sectionMove.style.marginLeft = -(counter+num)+"px";
+
+        counter = counter + 300;
+
+        num = num + 30;
+
+        if (counter == 1200) {
+
+            counter = 0;
+
+        }
+        
+        if (num == 120) {
+
+            num = 0;
+
+        }
+
+    }, 10000);
+
+
+    var swiper = new Swiper(".swiper", {
+
+        pagination: {
+
+            el: ".swiper-pagination",
+
+            dynamicBullets: true,
+
+        },
+
+    });
+
+    let cartClick = document.querySelector(".main .heading .heading-items .shop-cart");
+
+    let cartShow = document.querySelector(".main .heading .cart-items");
+
+    cartClick.onclick = function () {
+
+        if (cartShow.style.opacity == 0) {
+
+            cartShow.style.opacity = '1'
+
+            cartShow.style.visibility = 'visible'
+
+        } else {
+
+            cartShow.style.opacity = '0'
+
+            cartShow.style.visibility = 'hidden'
+
+        }
+
+    }
+
+    let shoping = document.querySelectorAll(".whish")
+
+    console.log(shoping)
+
+    shoping.forEach(item => {
+
+        item.addEventListener('click', (e) => {
+
+            let itemShop = document.createElement("div")
+
+            let imageShop = document.createElement("img")
+
+            let textShop = document.createElement("p")
+
+            let nameShop = document.createElement("h5")
+
+            let priceItem = document.createElement("p")
+
+            let priceCost = document.createElement("p")
+
+            let markPrice = document.createElement("span")
+
+            let textContainer = document.createElement("div")
+
+            let markPriceText = document.createTextNode("$")
+
+            let nameShopText = document.createTextNode(e.target.dataset.name)
+
+            let textShopAppend = document.createTextNode(e.target.dataset.total)
+
+            let Xmark = document.createElement("i")
+
+            Xmark.classList.add("fa-solid", "fa-xmark")
+
+            Xmark.style.position = "absolute"
+
+            Xmark.style.top = "45%"
+
+            Xmark.style.right = "10px"
+
+            Xmark.style.transform = "translateX(-20%)"
+
+            Xmark.style.fontSize = "22px"
+
+            Xmark.style.cursor = "pointer"
+
+            imageShop.src = e.target.dataset.image
+
+            imageShop.style.width = "120px"
+
+            imageShop.style.border = "1px solid var(--special--color)"
+
+            markPrice.classList.add("mark-price")
+
+            markPrice.appendChild(markPriceText)
+
+            textShop.appendChild(nameShop)
+
+            nameShop.appendChild(nameShopText)
+
+            nameShop.style.fontSize = "13px"
+
+            nameShop.style.marginBottom = "5px"
+
+            itemShop.appendChild(imageShop)
+
+            priceCost.appendChild(textShopAppend)
+
+            priceItem.appendChild(markPrice)
+
+            priceItem.appendChild(priceCost)
+
+            itemShop.appendChild(priceItem)
+
+            itemShop.appendChild(textShop)
+
+            textContainer.appendChild(textShop)
+
+            textContainer.appendChild(priceItem)
+
+            itemShop.appendChild(textContainer)
+
+            priceCost.classList.add('price-know')
+
+            priceItem.classList.add('price-cost')
+
+            textShop.classList.add("text-shop")
+
+            itemShop.classList.add("items-shop")
+
+            let containerSection = document.querySelector(".category")
+
+            itemShop.appendChild(Xmark)
+
+            containerSection.appendChild(itemShop)
+
+            cartShow.appendChild(containerSection)
+
+            Xmark.onclick = function () {
+
+                containerSection.removeChild(itemShop)
+
+            }
+
+        })
+
+    })
+
+    var sumTotal = document.querySelector(".price")
+
+    const ckeckOut = document.querySelector(".ckeckout")
+
+    document.addEventListener('click', function() {
+
+        var totalContainer = document.querySelectorAll(".price-know")
+
+        let x = []
+
+        for (i = 0; i < totalContainer.length; i++) {
+
+            var totalArray = totalContainer[i]
+
+            x[i] = parseInt(totalArray.textContent)
+
+        }
+
+        var total = x.reduce(function(acc, val) { return acc + val; }, 0)
+
+        sumTotal.textContent = total
+
+        ckeckOut.onclick = function() {
+
+            const shopMessage = document.querySelector(".message")
+
+            const emtyMessage = document.querySelector(".emty-message")
+
+            const itemShopAll = document.querySelectorAll(".items-shop")
+
+            const categoryAll = document.querySelector(".category")
+
+            if (itemShopAll.length == 0) {
+
+                emtyMessage.style.top = "5px"
+
+                setTimeout(() => {
+
+                    emtyMessage.style.top = "-200px"
+
+                }, 5000)
+
+            } else {
+
+                shopMessage.style.top = "5px"
+
+                categoryAll.innerHTML = ""
+
+                setTimeout(() => {
+
+                    shopMessage.style.top = "-200px"
+
+                }, 5000)
+
+            }
+
+        }
+
+        let numItems = document.querySelector(".num-items")
+
+            let itemsLength = document.querySelectorAll(".items-shop")
+
+            if (itemsLength.length > 0) {
+
+                numItems.style.opacity = '1'
+
+            } else {
+
+                numItems.style.opacity = '0'
+
+            }
+
+            numItems.textContent = itemsLength.length
+
+    })
+
+    const swiper3 = new Swiper(".logos-container", {
+
+        pagination: {
+
+            el: ".swiper-pagination",
+
+            dynamicBullets: true,
+
+        },
+
+    });
+    </script>
+
+</body>
+</html>
